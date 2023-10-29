@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: #ccc;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .section {
+            flex: 0 0 30%;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .list-item a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .list-item a:hover {
+            text-decoration: underline;
+        }
+        .create-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .create-btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .create-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <a href="/">Logout</a>
+    </header>
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Students</div>
+            <ul class="list">
+                {% for student in students %}
+                <li class="list-item"><span>{{ student.name }}</span> <a href="#">View Details</a></li>
+                {% endfor %}
+            </ul>
+            <li class="create-btn-container">
+              <a class="create-btn" href="etudiant/create">Create New Student</a>
+            </li>
+        </div>
+        <div class="section">
+            <div class="section-title">Professors</div>
+            <ul class="list">
+                {% for professor in professors %}
+                <li class="list-item"><span>{{ professor.name }}</span> <a href="#">View Details</a></li>
+                {% endfor %}
+                <li class="create-btn-container">
+                  <a class="create-btn" href="/prof/create">Create New Professor</a>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="section">
+            <div class="section-title">Classes</div>
+            <ul class="list">
+                {% for class in classes %}
+                <li class="list-item"><span>{{ class.name }}</span> <a href="#">View Details</a></li>
+                {% endfor %}
+                <li class="create-btn-container">
+                  <a class="create-btn" href="/classe/create">Create New Class</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

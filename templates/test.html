@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Test</title>
+</head>
+<body>
+    <h1>Generated Test</h1>
+    <form>
+        {% for question in questions %}
+            <p>{{ question.question }}</p>
+            <input type="text" name="{{ loop.index0 }}"><br>
+            <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+    <p>Your scores:</p>
+    {% for score in scores %}
+        <p>{{ score }}</p>
+    {% endfor %}
+</body>
+</html>

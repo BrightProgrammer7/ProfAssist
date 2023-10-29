@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container select,
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Create New Class</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <form action="/classe/create" method="post">
+                <label for="professor">Professor:</label>
+                <select name="professor" required>
+                    {% for professor in professors %}
+                        <option value="{{ professor.id }}">{{ professor.name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <label for="student">Student:</label>
+                <select name="student" required>
+                    {% for student in students %}
+                        <option value="{{ student.id }}">{{ student.name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <label for="name">Class Name:</label>
+                <input type="text" name="name" required>
+                <br>
+                <input type="submit" value="Create Class">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

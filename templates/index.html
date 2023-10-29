@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF QCM Generator</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          color: #333;
+          margin: 0;
+          padding: 0;
+          background-image: url('https://img.freepik.com/free-vector/programmers-with-charts-make-chatbot-learn-data-from-past-results-chatbot-self-learning-virtual-assistants-learning-ai-machine-learning-concept-bright-vibrant-violet-isolated-illustration_335657-433.jpg?w=1060&t=st=1690044520~exp=1690045120~hmac=aa8f5d5478291575cb57e4501e51727bba2fc8d84cacfd2dae36190530cb6d54');
+          background-repeat: no-repeat;
+          background-size: cover;
+
+      }
+      h1 {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+
+      form {
+          max-width: 500px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+          display: block;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+          background-color: #0056b3;
+      }
+    </style>
+</head>
+<body>
+    <h1>PDF QCM Generator</h1>
+    <form method="POST" action="/cours/create">
+        <label for="pdf_url">Enter PDF URL:</label>
+        <input type="text" name="pdf_url" id="pdf_url" required>
+        <br>
+        <label for="num">Enter Questions Number:</label>
+        <input type="number" name="num" id="num" required>
+        <br>
+        <input type="submit" value="Generate QCM">
+    </form>
+</body>
+</html>
